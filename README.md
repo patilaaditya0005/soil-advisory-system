@@ -31,28 +31,78 @@ The system analyzes soil pH and NPK nutrient values to identify potential defici
 
 ## 🚀 Getting Started
 
-To run the project locally, first clone the repository:
+### Prerequisites
+
+- Python installed
+- Node.js and npm installed
+- Git installed
+- Google Gemini API key for AI chatbot functionality, if required
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/patilaaditya0005/soil-advisory-system.git
 cd soil-advisory-system
 ```
 
-### Prerequisites
+### 2. Configure the Backend
 
-- Python installed
-- Node.js and npm installed
-- Google Gemini API key, if required by the chatbot or backend
+Open a terminal in the project root:
 
-### Backend Setup
+```bash
+cd backend
+python -m venv .venv
+```
 
-Follow the backend instructions and dependency files in the `backend` directory. Configure required environment variables locally and start the FastAPI application using the project's documented entry point.
+Activate the virtual environment on Windows:
 
-### Frontend Setup
+```bat
+.venv\Scripts\activate
+```
 
-Follow the frontend instructions and dependency files in the `frontend` directory. Install dependencies and start the Vite development server using the scripts defined in `package.json`.
+Install the Python dependencies:
 
-**Note:** Confirm the actual entry points, dependency files, environment variable names, and startup commands in the repository before running the application.
+```bash
+python -m pip install -r requirements.txt
+```
+
+Configure the required environment variables using a local `.env` file, following the variable names expected by the backend code. Never commit API keys or other secrets.
+
+Start the API using the entry point configured in the project:
+
+```bash
+uvicorn main:app --reload
+```
+
+This command assumes `main.py` defines a FastAPI instance named `app`.
+
+### 3. Configure the Frontend
+
+Open a second terminal in the project root:
+
+```bash
+cd frontend
+npm ci
+npm run dev
+```
+
+Open the local URL printed by Vite in your terminal.
+
+### 4. Build the Frontend
+
+To check whether the frontend builds successfully:
+
+```bash
+npm run build
+```
+
+### Troubleshooting
+
+- Ensure Python and Node.js are installed and available on your PATH.
+- Verify the backend's required environment variables before starting the application.
+- Check the frontend API URL configuration if the frontend cannot reach the backend.
+- Use the project's actual backend entry point if it differs from `main:app`.
+
 
 ## 🔐 Environment Variables
 

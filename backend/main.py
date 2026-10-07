@@ -61,7 +61,7 @@ def predict_crop_ml(N, P, K, temperature, humidity, ph, rainfall):
 def get_ai_summary(prompt, language="English"):
     try:
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-3.5-flash-lite",
             contents=prompt,
             config=types.GenerateContentConfig(
                 system_instruction=f"You are an expert agricultural advisor for Indian farmers. You MUST respond ONLY in the following language: {language}. Keep your response simple and under 5 lines."
@@ -272,7 +272,7 @@ User Query:
 """
 
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-3.5-flash-lite",
             contents=user_content,
             config=types.GenerateContentConfig(
                 system_instruction=sys_instruction
